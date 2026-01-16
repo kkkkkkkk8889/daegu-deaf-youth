@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>문의 관리</title>
+  <meta name="description" content="대구농아청년회 문의 관리 페이지입니다.">
+  <meta property="og:title" content="문의 관리">
+  <meta property="og:description" content="대구농아청년회 문의 관리 페이지입니다.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage">
+  <a class="skip-link" href="#main">본문 바로가기</a>
+  <header class="site-header" id="top">
+    <div class="header-inner header-inner--no-nav">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="로고사진.png" alt="대구농아청년회 로고">
+        <div>
+          <div class="brand-title">대구농아청년회</div>
+          <div class="brand-subtitle">함께 잇는 청각장애 청년 커뮤니티</div>
+        </div>
+      </a>
+      <div class="header-actions header-actions--right">
+        <a class="admin-btn" href="contact.html">문의 페이지</a>
+        <a class="btn primary" href="admin/index.html">관리자 기능</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="subpage-hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Admin</p>
+        <h1>문의 답변 관리</h1>
+        <p class="lead">문의 내용을 확인하고 답변을 등록해 주세요.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Manage</p>
+        <h2>문의 목록</h2>
+        <p>답변을 입력하고 저장하면 문의 리스트에 반영됩니다.</p>
+      </div>
+      <div id="contact-admin-list" class="grid two"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <div class="brand-title">대구농아청년회</div>
+      <p>청각장애 청년의 권익과 성장을 함께 만드는 지역 커뮤니티</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#about">소개</a>
+      <a href="index.html#programs">프로그램</a>
+      <a href="events.html">행사</a>
+      <a href="support.html">참여/후원</a>
+      <a href="contact.html">문의</a>
+    </div>
+    <p class="footer-contact">이메일: <a href="mailto:dgdeaf04@gmail.com">dgdeaf04@gmail.com</a> · 전화/문자: <a href="tel:053-623-9929">053-623-9929</a></p>
+    <p class="footer-copy">ⓒ 2026 Daegu Deaf Youth Association</p>
+  </footer>
+  <button class="back-to-top" aria-label="맨 위로">↑</button>
+  <div class="lightbox is-hidden" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="갤러리 사진 확대">
+    <button type="button" class="lightbox-close" id="gallery-lightbox-close" aria-label="닫기">×</button>
+    <img id="gallery-lightbox-image" alt="">
+  </div>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

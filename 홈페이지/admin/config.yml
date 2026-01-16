@@ -1,0 +1,197 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+editor:
+  preview: false
+
+collections:
+  - name: "site"
+    label: "홈페이지"
+    files:
+      - label: "홈페이지 콘텐츠"
+        name: "content"
+        file: "assets/data/site.json"
+        format: "json"
+        fields:
+          - label: "히어로"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "제목", name: "title", widget: "string" }
+              - { label: "리드 문구", name: "lead", widget: "string" }
+              - { label: "메인 버튼", name: "primaryCta", widget: "string" }
+              - { label: "보조 버튼", name: "secondaryCta", widget: "string" }
+          - label: "소개"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "제목", name: "heading", widget: "string" }
+              - { label: "본문", name: "body", widget: "text" }
+          - label: "비전"
+            name: "vision"
+            widget: "object"
+            fields:
+              - { label: "제목", name: "title", widget: "string" }
+              - { label: "설명", name: "body", widget: "text" }
+              - label: "항목"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "텍스트", name: "text", widget: "string" }
+          - label: "우리가 하는 일"
+            name: "work"
+            widget: "object"
+            fields:
+              - { label: "제목", name: "title", widget: "string" }
+              - { label: "설명", name: "body", widget: "text" }
+              - label: "항목"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "텍스트", name: "text", widget: "string" }
+          - label: "프로그램"
+            name: "programs"
+            widget: "object"
+            fields:
+              - { label: "제목", name: "heading", widget: "string" }
+              - { label: "설명", name: "body", widget: "text" }
+              - label: "카드"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "배지", name: "badge", widget: "string" }
+                  - { label: "제목", name: "title", widget: "string" }
+                  - { label: "설명", name: "body", widget: "text" }
+          - label: "갤러리"
+            name: "gallery"
+            widget: "object"
+            fields:
+              - { label: "제목", name: "heading", widget: "string" }
+              - { label: "설명", name: "body", widget: "text" }
+              - { label: "안내 문구", name: "ctaNote", widget: "string", required: false }
+              - { label: "버튼 텍스트", name: "ctaButton", widget: "string" }
+          - label: "행사"
+            name: "events"
+            widget: "object"
+            fields:
+              - { label: "제목", name: "heading", widget: "string" }
+              - { label: "설명", name: "body", widget: "text" }
+              - { label: "안내 문구", name: "ctaNote", widget: "string" }
+              - { label: "문의 버튼", name: "contactButton", widget: "string" }
+              - { label: "캘린더 버튼", name: "calendarButton", widget: "string" }
+          - label: "참여/후원"
+            name: "join"
+            widget: "object"
+            fields:
+              - { label: "제목", name: "heading", widget: "string" }
+              - { label: "설명", name: "body", widget: "text" }
+              - label: "카드"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "제목", name: "title", widget: "string" }
+                  - { label: "설명", name: "body", widget: "text" }
+                  - label: "항목"
+                    name: "bullets"
+                    widget: "list"
+                    required: false
+                    fields:
+                      - { label: "텍스트", name: "text", widget: "string" }
+              - { label: "안내 문구", name: "ctaNote", widget: "string" }
+              - { label: "버튼 텍스트", name: "ctaButton", widget: "string" }
+          - label: "소식"
+            name: "news"
+            widget: "object"
+            fields:
+              - { label: "제목", name: "heading", widget: "string" }
+              - { label: "설명", name: "body", widget: "text" }
+              - { label: "안내 문구", name: "ctaNote", widget: "string" }
+              - { label: "버튼 텍스트", name: "ctaButton", widget: "string" }
+              - { label: "작성 폼 제목", name: "formTitle", widget: "string" }
+              - { label: "작성 폼 설명", name: "formIntro", widget: "text" }
+              - { label: "작성 폼 도움말", name: "formHelp", widget: "string" }
+          - label: "FAQ"
+            name: "faq"
+            widget: "object"
+            fields:
+              - { label: "제목", name: "heading", widget: "string" }
+              - label: "질문"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "질문", name: "question", widget: "string" }
+                  - { label: "답변", name: "answer", widget: "text" }
+          - label: "문의"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "제목", name: "heading", widget: "string" }
+              - { label: "설명", name: "body", widget: "text" }
+              - { label: "이메일", name: "email", widget: "string" }
+              - { label: "전화/문자", name: "phone", widget: "string" }
+              - { label: "주소", name: "address", widget: "string" }
+              - { label: "지도 버튼", name: "mapButton", widget: "string" }
+              - { label: "문의 폼 제목", name: "formTitle", widget: "string" }
+              - { label: "문의 폼 도움말", name: "formHelp", widget: "string" }
+
+  - name: "gallery"
+    label: "갤러리"
+    files:
+      - label: "갤러리 데이터"
+        name: "data"
+        file: "assets/data/gallery.json"
+        format: "json"
+        fields:
+          - label: "아이템"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "제목", name: "title", widget: "string" }
+              - { label: "설명", name: "caption", widget: "string", required: false }
+              - { label: "이미지", name: "image", widget: "image" }
+
+  - name: "events"
+    label: "행사"
+    files:
+      - label: "행사 데이터"
+        name: "data"
+        file: "assets/data/events.json"
+        format: "json"
+        fields:
+          - label: "행사 목록"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "제목", name: "title", widget: "string" }
+              - { label: "일시", name: "datetime", widget: "string" }
+              - { label: "장소", name: "location", widget: "string" }
+              - { label: "분류", name: "category", widget: "string", required: false }
+
+  - name: "news"
+    label: "소식"
+    files:
+      - label: "소식 데이터"
+        name: "data"
+        file: "assets/data/news.json"
+        format: "json"
+        fields:
+          - label: "소식 목록"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "제목", name: "title", widget: "string" }
+              - { label: "유형(공지/후기 등)", name: "type", widget: "string" }
+              - { label: "작성자", name: "author", widget: "string" }
+              - { label: "날짜(YYYY-MM-DD)", name: "date", widget: "string" }
+              - { label: "요약", name: "summary", widget: "text", required: false }
+              - { label: "사진", name: "image", widget: "image", required: false }
+              - { label: "고정 공지(핀)", name: "pinned", widget: "boolean", default: false, required: false }
+              - { label: "작성자 이메일", name: "authorEmail", widget: "string", required: false }

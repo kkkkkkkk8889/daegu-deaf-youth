@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: 'Noto Sans KR', Arial, sans-serif;
+        margin: 0;
+        background: #f5fbfa;
+      }
+      .admin-bar {
+        position: relative;
+        background: #ffffff;
+        border-bottom: 1px solid #e4efec;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      }
+      .admin-bar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.9rem 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .brand-mark {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        font-size: 1rem;
+      }
+      .brand-text {
+        display: grid;
+        gap: 0.1rem;
+      }
+      .brand-title {
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #0b1f1e;
+      }
+      .brand-sub {
+        font-size: 0.92rem;
+        color: #4a5d5b;
+      }
+      .admin-actions {
+        margin-left: auto;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      .admin-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.55rem 0.9rem;
+        border-radius: 12px;
+        border: 1px solid #dce7e5;
+        background: #fff;
+        color: #0b1f1e;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .admin-btn.primary {
+        background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+        color: #fff;
+        border: none;
+        box-shadow: 0 8px 20px rgba(15, 118, 110, 0.2);
+      }
+      /* CMS ?¤ë” ê³ ì •/?’ì´ ì¡°ì • */
+      .nc-app-header-wrapper {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: none !important;
+      }
+      /* ë¯¸ë¦¬ë³´ê¸° ?¨ë„ ?œê±° */
+      .nc-previewPane {
+        display: none !important;
+      }
+      /* ì¢Œìš° ?ì—­ ê°€ë¦¬ëŠ” ?„í™˜ ë²„íŠ¼ ?¨ê? */
+      .nc-previewToggle {
+        display: none !important;
+      }
+      /* ì½˜í…ì¸?ë¯¸ë””?????ë‹¨ ?¬ë°± ?œê±° */
+      .nc-editor-toolbar {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+      /* ë¦¬ìŠ¤?¸Â·í¸ì§??ì—­??ê²¹ì¹˜ì§€ ?Šê²Œ ?¨ë”© ì¡°ì • */
+      .nc-app-editor {
+        padding-top: 0 !important;
+      }
+      /* ?ë‹¨ ?Œìƒ‰ ?¬ë°± ?œê±° */
+      .nc-app-header-wrapper,
+      .nc-app-header,
+      .nc-root,
+      .nc-app-collections {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+      .nc-app-collection {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+      }
+      /* ?´ë°”-ì½˜í…ì¸??ì—­ ?¬ì´ ê°„ê²© ìµœì†Œ??*/
+      .nc-app-main {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+      .nc-mainPane {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+      }
+      .nc-app-collection .nc-collectionPage-heading {
+        margin-top: 0 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-bar">
+      <div class="admin-bar-inner">
+        <div class="brand-mark">D</div>
+        <div class="brand-text">
+          <div class="brand-title">?€êµ¬ë†?„ì²­?„íšŒ</div>
+          <div class="brand-sub">?¨ê»˜ ?‡ëŠ” ì²?°?¥ì•  ì²?…„ ì»¤ë??ˆí‹°</div>
+        </div>
+        <div class="admin-actions">
+          <a class="admin-btn" href="/" target="_blank">?ˆí˜?´ì? ?´ê¸°</a>
+          <a class="admin-btn primary" href="#/login">ê´€ë¦¬ì ë¡œê·¸??/a>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Inline config to avoid config.yml fetch issues
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      CMS.init({
+        config: {
+          backend: { name: "git-gateway", branch: "main" },
+          local_backend: true,
+          media_folder: "assets/uploads",
+          public_folder: "/assets/uploads",
+          editor: { preview: false }, // ë¯¸ë¦¬ë³´ê¸° ?¨ë„ ?¨ê?
+          collections: [
+            {
+              name: "gallery",
+              label: "ê°¤ëŸ¬ë¦?,
+              files: [
+                {
+                  label: "ê°¤ëŸ¬ë¦??°ì´??,
+                  name: "data",
+                  file: "assets/data/gallery.json",
+                  format: "json",
+                  fields: [
+                    {
+                      label: "?„ì´??,
+                      name: "items",
+                      widget: "list",
+                      summary: "{{fields.title}}",
+                      fields: [
+                        { label: "?œëª©", name: "title", widget: "string" },
+                        { label: "?¤ëª…", name: "caption", widget: "string", required: false },
+                        {
+                          label: "?´ë?ì§€",
+                          name: "image",
+                          widget: "image",
+                          media_folder: "assets/uploads",
+                          public_folder: "/assets/uploads"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              name: "events",
+              label: "?‰ì‚¬",
+              files: [
+                {
+                  label: "?‰ì‚¬ ?°ì´??,
+                  name: "data",
+                  file: "assets/data/events.json",
+                  format: "json",
+                  fields: [
+                    {
+                      label: "?‰ì‚¬ ëª©ë¡",
+                      name: "items",
+                      widget: "list",
+                      summary: "{{fields.title}}",
+                      fields: [
+                        { label: "?œëª©", name: "title", widget: "string" },
+                        { label: "?¼ì‹œ", name: "datetime", widget: "string" },
+                        { label: "?¥ì†Œ", name: "location", widget: "string" },
+                        { label: "ë¶„ë¥˜", name: "category", widget: "string", required: false }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              name: "news",
+              label: "?Œì‹",
+              files: [
+                {
+                  label: "?Œì‹ ?°ì´??,
+                  name: "data",
+                  file: "assets/data/news.json",
+                  format: "json",
+                  fields: [
+                    {
+                      label: "?Œì‹ ëª©ë¡",
+                      name: "items",
+                      widget: "list",
+                      summary: "{{fields.title}}",
+                      fields: [
+                        { label: "?œëª©", name: "title", widget: "string" },
+                        { label: "? í˜•(ê³µì?/?„ê¸° ??", name: "type", widget: "string" },
+                        { label: "?‘ì„±??, name: "author", widget: "string" },
+                        { label: "? ì§œ(YYYY-MM-DD)", name: "date", widget: "string" },
+                        { label: "?”ì•½", name: "summary", widget: "text", required: false }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      });
+    </script>
+  </body>
+</html>

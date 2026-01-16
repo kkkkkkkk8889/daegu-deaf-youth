@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "title": "대구농아청년회 정기총회 및 대의원보궐선거",
+      "datetime": "2026-01-31 토요일 오후 2시",
+      "location": "대구 중구 농아인회관",
+      "category": "정기총회 및 대의원보궐선거"
+    },
+    {
+      "title": "봄 나들이",
+      "datetime": "미정",
+      "location": "미정",
+      "category": "친목회"
+    },
+    {
+      "title": "여름 MT",
+      "datetime": "미정",
+      "location": "미정",
+      "category": "친목회"
+    },
+    {
+      "title": "가을 나들이",
+      "datetime": "미정",
+      "location": "미정",
+      "category": "문화 교육"
+    }
+  ]
+}

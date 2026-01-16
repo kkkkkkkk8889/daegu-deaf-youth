@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>대구농아청년회 관리자</title>
+    <style>흠
+      body {
+        font-family: 'Noto Sans KR', Arial, sans-serif;
+        margin: 0;
+        background: #f5fbfa;
+      }
+      .admin-bar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: #fff;
+        border-bottom: 1px solid #e4efec;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      }
+      .admin-bar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.9rem 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .brand-logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        object-fit: contain;
+        background: #fff;
+        border: 1px solid #e4efec;
+        padding: 4px;
+      }
+      .brand-text {
+        display: grid;
+        gap: 0.1rem;
+      }
+      .brand-title {
+        font-weight: 800;
+        color: #0b1f1e;
+      }
+      .brand-sub {
+        color: #4a5d5b;
+        font-size: 0.92rem;
+      }
+      .admin-actions {
+        margin-left: auto;
+      }
+      .admin-btn {
+        padding: 0.55rem 0.9rem;
+        border-radius: 12px;
+        border: 1px solid #dce7e5;
+        background: #0f766e;
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 8px 20px rgba(15, 118, 110, 0.2);
+      }
+      /* 최소한의 여백/헤더 정리 */
+      .nc-app-header-wrapper,
+      .nc-app-header,
+      .nc-collectionPage-heading,
+      .nc-editor-toolbar,
+      .nc-app-main,
+      .nc-mainPane,
+      .nc-collectionView {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        box-shadow: none !important;
+      }
+      .nc-previewPane,
+      .nc-previewToggle,
+      .nc-preview-pane,
+      .nc-editor-preview-pane,
+      .nc-previewFrame,
+      .nc-preview-pane-container,
+      .nc-preview-pane-wrapper,
+      .nc-preview,
+      .nc-editor-preview,
+      .nc-preview-pane-root {
+        display: none !important;
+      }
+      .nc-splitPane,
+      .nc-splitPane-pane,
+      .nc-splitPane-pane:last-child {
+        width: 100% !important;
+      }
+      .nc-splitPane-pane:last-child {
+        display: none !important;
+      }
+      .nc-splitPane-pane:nth-child(2) {
+        display: none !important;
+      }
+      .nc-splitPane > div:last-child,
+      .nc-splitPane > section:last-child,
+      [data-testid="preview-pane"],
+      [data-testid="preview"] {
+        display: none !important;
+      }
+      .nc-header-user-menu,
+      .nc-header-user-menu + div {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-bar">
+      <div class="admin-bar-inner">
+        <img class="brand-logo" src="../로고사진.png" alt="대구농아청년회 로고">
+        <div class="brand-text">
+          <div class="brand-title">대구농아청년회</div>
+          <div class="brand-sub">함께 잇는 청각장애 청년 커뮤니티</div>
+        </div>
+        <div class="admin-actions">
+          <a class="admin-btn" href="../admin-contact.html" target="_blank">문의 답변</a>
+          <a class="admin-btn" href="/" target="_blank">홈페이지 열기</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      function hidePreviewPane() {
+        const selectors = [
+          '.nc-previewPane',
+          '.nc-previewToggle',
+          '.nc-preview-pane',
+          '.nc-editor-preview-pane',
+          '.nc-previewFrame',
+          '.nc-preview-pane-container',
+          '.nc-preview-pane-wrapper',
+          '.nc-preview',
+          '.nc-editor-preview',
+          '.nc-preview-pane-root',
+          '[data-testid="preview-pane"]',
+          '[data-testid="preview"]',
+        ];
+
+        selectors.forEach((selector) => {
+          document.querySelectorAll(selector).forEach((el) => {
+            el.style.display = 'none';
+          });
+        });
+
+        document.querySelectorAll('.nc-splitPane-pane').forEach((pane, idx) => {
+          if (idx === 0) {
+            pane.style.width = '100%';
+          } else {
+            pane.style.display = 'none';
+          }
+        });
+      }
+
+      window.addEventListener('load', hidePreviewPane);
+      setTimeout(hidePreviewPane, 500);
+
+      const previewObserver = new MutationObserver(hidePreviewPane);
+      previewObserver.observe(document.documentElement, {
+        childList: true,
+        subtree: true,
+      });
+    </script>
+  </body>
+</html>

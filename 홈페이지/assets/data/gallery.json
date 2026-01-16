@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "title": "정기모임",
+      "caption": "청년 교류와 수어 네트워킹",
+      "image": "/assets/uploads/스크린샷-2025-06-29-144744.png"
+    },
+    {
+      "title": "리더십 교육 워크숍",
+      "caption": "청년 리더십 스킬 업",
+      "image": "assets/uploads/gallery-2.jpg"
+    },
+    {
+      "title": "문화 나들이",
+      "caption": "지역 문화 탐방",
+      "image": "assets/uploads/gallery-3.jpg"
+    },
+    {
+      "title": "멘토링 세션",
+      "caption": "또래 멘토링",
+      "image": "assets/uploads/gallery-4.jpg"
+    },
+    {
+      "title": "청년 간담회",
+      "caption": "정책·권익 논의",
+      "image": "assets/uploads/gallery-5.jpg"
+    },
+    {
+      "title": "캠페인 현장",
+      "caption": "정보 접근성 캠페인",
+      "image": "assets/uploads/gallery-6.jpg"
+    },
+    {
+      "title": "정기총회 및 보궐선거",
+      "caption": "1년 주기 맞아 정기총회 및 대의원보궐선거",
+      "image": "/assets/uploads/제목을-입력해주세요-1-.png"
+    }
+  ]
+}
